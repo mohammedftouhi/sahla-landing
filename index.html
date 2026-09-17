@@ -1092,6 +1092,535 @@ html.v18-motion .stagger-parent > .motion-item:nth-child(5){--motion-delay:360ms
   }
 }
 
+
+/* ============================================================
+   V20 — Desktop hero visual overlap fix
+   Keep the two floating notes, but pin them to the card edges
+   so they no longer cover the diagram/title/content.
+   ============================================================ */
+@media (min-width:981px){
+  .visual-wrap{
+    overflow:visible!important;
+  }
+
+  .floating-badge{
+    font-size:13px!important;
+    padding:10px 14px!important;
+    border-radius:14px!important;
+    line-height:1.35!important;
+    box-shadow:0 14px 34px rgba(16,47,71,.13)!important;
+  }
+
+  .floating-badge.one{
+    top:-18px!important;
+    right:22px!important;
+    left:auto!important;
+  }
+
+  .floating-badge.two{
+    bottom:-18px!important;
+    left:22px!important;
+    right:auto!important;
+  }
+}
+
+/* Slightly safer placement on tablet widths */
+@media (min-width:681px) and (max-width:980px){
+  .floating-badge.one{
+    top:-14px!important;
+    right:18px!important;
+  }
+  .floating-badge.two{
+    bottom:-14px!important;
+    left:18px!important;
+  }
+}
+
+
+/* ============================================================
+   V21 — Clean hero visual
+   Removed the two floating callouts completely.
+   The dark diagnostic panel now stands on its own with zero overlap.
+   ============================================================ */
+#tiltVisual{
+  padding-top:0!important;
+}
+#tiltVisual .visual-card{
+  margin-top:0!important;
+}
+.floating-badge{
+  display:none!important;
+}
+@media (min-width:981px){
+  .hero-grid{
+    align-items:center!important;
+  }
+  .visual-wrap{
+    overflow:visible!important;
+  }
+}
+
+
+/* ============================================================
+   V22 — Lower the diagnostic callout box
+   Moves "هبوط واضح بين الزيارة والتفاعل" downward only.
+   ============================================================ */
+@media (min-width:681px){
+  .pipeline .callout{
+    bottom:7px!important;
+  }
+}
+
+@media (max-width:680px){
+  .pipeline .callout{
+    bottom:5px!important;
+  }
+}
+
+
+/* ============================================================
+   V23 — Callout lowered + reduced, with clear space for rates
+   ============================================================ */
+
+/* Desktop/tablet: reserve clear space above the callout so rates remain visible */
+@media (min-width:681px){
+  .pipeline .flow{
+    top:24px!important;
+    bottom:82px!important;
+  }
+
+  .pipeline .callout{
+    bottom:3px!important;
+    left:30px!important;
+    right:30px!important;
+    padding:9px 12px!important;
+    gap:9px!important;
+    border-radius:13px!important;
+    min-height:auto!important;
+  }
+
+  .pipeline .callout b{
+    font-size:12px!important;
+    line-height:1.35!important;
+  }
+
+  .pipeline .callout span{
+    font-size:9.5px!important;
+    line-height:1.45!important;
+  }
+
+  .pipeline .callout .warn{
+    font-size:9px!important;
+    padding:6px 8px!important;
+    border-radius:8px!important;
+  }
+}
+
+/* Mobile: same idea, slightly tighter */
+@media (max-width:680px){
+  .pipeline .flow{
+    bottom:84px!important;
+  }
+
+  .pipeline .callout{
+    bottom:2px!important;
+    left:10px!important;
+    right:10px!important;
+    padding:8px 10px!important;
+    gap:7px!important;
+    border-radius:12px!important;
+  }
+
+  .pipeline .callout b{
+    font-size:10px!important;
+  }
+
+  .pipeline .callout span{
+    font-size:8px!important;
+    line-height:1.4!important;
+  }
+
+  .pipeline .callout .warn{
+    font-size:8px!important;
+    padding:5px 7px!important;
+  }
+}
+
+
+/* ============================================================
+   V24 — إعادة ترتيب كاملة للوحة التشخيص
+   الهدف: محاذاة أدق + صندوق تشخيص أكبر قليلًا + مساحات أنظف
+   ============================================================ */
+
+@media (min-width:681px){
+
+  /* اللوحة الرئيسية */
+  .visual-card{
+    min-height:620px!important;
+  }
+
+  /* رأس اللوحة */
+  .visual-head{
+    min-height:96px!important;
+    padding:26px 30px 18px!important;
+    align-items:center!important;
+  }
+
+  .visual-head small{
+    display:block!important;
+    margin-bottom:6px!important;
+    font-size:12px!important;
+    line-height:1.45!important;
+  }
+
+  .visual-title{
+    margin-top:0!important;
+    font-size:25px!important;
+    line-height:1.3!important;
+  }
+
+  .live{
+    flex:0 0 auto!important;
+    padding:7px 10px!important;
+    border-radius:999px!important;
+    font-size:12px!important;
+    background:rgba(255,255,255,.04)!important;
+    border:1px solid rgba(255,255,255,.06)!important;
+  }
+
+  /* مساحة المخطط */
+  .pipeline{
+    height:374px!important;
+    margin:0 28px!important;
+    border-radius:26px!important;
+  }
+
+  /* المراحل الأربع */
+  .flow{
+    top:54px!important;
+    right:28px!important;
+    left:28px!important;
+    bottom:auto!important;
+    height:206px!important;
+    gap:18px!important;
+    align-items:start!important;
+  }
+
+  .stage{
+    gap:6px!important;
+    min-width:0!important;
+  }
+
+  .node{
+    width:88px!important;
+    height:88px!important;
+    margin-bottom:4px!important;
+    border-radius:24px!important;
+  }
+
+  .node svg{
+    width:35px!important;
+    height:35px!important;
+  }
+
+  .stage strong{
+    min-height:22px!important;
+    font-size:15px!important;
+    line-height:1.4!important;
+  }
+
+  .stage small{
+    min-height:18px!important;
+    font-size:11.5px!important;
+    line-height:1.45!important;
+  }
+
+  .stage .rate{
+    display:block!important;
+    min-height:18px!important;
+    margin-top:2px!important;
+    font-size:13px!important;
+    line-height:1.4!important;
+  }
+
+  /* خط المسار يمر من منتصف الأيقونات */
+  .connector{
+    top:98px!important;
+    right:13%!important;
+    left:13%!important;
+    height:3px!important;
+  }
+
+  /* صندوق التشخيص: أكبر قليلًا وأخفض مع فراغ واضح فوقه */
+  .pipeline .callout{
+    bottom:15px!important;
+    left:22px!important;
+    right:22px!important;
+    min-height:76px!important;
+    padding:14px 17px!important;
+    gap:14px!important;
+    border-radius:17px!important;
+    background:rgba(5,25,39,.74)!important;
+  }
+
+  .pipeline .callout > div{
+    flex:1 1 auto!important;
+    min-width:0!important;
+  }
+
+  .pipeline .callout b{
+    display:block!important;
+    margin-bottom:4px!important;
+    font-size:13.5px!important;
+    line-height:1.5!important;
+  }
+
+  .pipeline .callout span:not(.warn){
+    font-size:10px!important;
+    line-height:1.55!important;
+  }
+
+  .pipeline .callout .warn{
+    flex:0 0 auto!important;
+    padding:7px 10px!important;
+    border-radius:9px!important;
+    font-size:9.5px!important;
+  }
+
+  /* البطاقتان السفليتان بنفس الارتفاع والمحاذاة */
+  .visual-foot{
+    grid-template-columns:1fr 1fr!important;
+    gap:12px!important;
+    padding:16px 28px 28px!important;
+  }
+
+  .metric{
+    min-height:88px!important;
+    padding:15px 16px!important;
+    border-radius:18px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+  }
+
+  .metric b{
+    margin-bottom:5px!important;
+    font-size:16px!important;
+    line-height:1.45!important;
+  }
+
+  .metric small{
+    font-size:10.5px!important;
+    line-height:1.55!important;
+  }
+}
+
+/* الجوال: نحافظ على التخطيط الحالي مع تحسين الصندوق فقط */
+@media (max-width:680px){
+  .pipeline .callout{
+    bottom:9px!important;
+    left:10px!important;
+    right:10px!important;
+    min-height:68px!important;
+    padding:10px 11px!important;
+    border-radius:13px!important;
+  }
+}
+
+
+/* ============================================================
+   V25 — ضبط خط المسار + إكمال أيقونة التفاعل
+   ============================================================ */
+@media (min-width:681px){
+  /* رفع الخط ليصبح في منتصف الأيقونات بصريًا */
+  .pipeline .connector{
+    top:88px!important;
+  }
+
+  /* منح الأيقونات وضوحًا أكبر وعدم قصّ الحواف */
+  .pipeline .node svg{
+    overflow:visible!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+  }
+
+  /* تكبير بسيط لأيقونة التفاعل حتى يظهر شكل الاستفهام كاملاً */
+  .pipeline .stage:nth-child(3) .node svg{
+    width:37px!important;
+    height:37px!important;
+  }
+}
+
+
+/* ============================================================
+   V27 — ضبط دقيق لنهاية خط المسار ومحاذاة نقطة الفحص
+   ============================================================ */
+@media (min-width:681px){
+  /* نهاية الخط عند نهاية شكل البوق داخل أيقونة الإعلان، بدون زيادة يمينًا */
+  .pipeline .connector{
+    right:11.4%!important;
+    left:13%!important;
+  }
+
+  /* النقطة البرتقالية تحت علامة الاستفهام مباشرة */
+  .pipeline .connector:after{
+    left:33.6%!important;
+  }
+}
+
+/* ============================================================
+   V28 — عكس تدرج خط المسار حسب اتجاه رحلة العميل
+   الإعلان والزيارة = أخضر، التفاعل = برتقالي، الطلب = اختفاء تدريجي
+   يطبق على الجوال والكمبيوتر
+   ============================================================ */
+.pipeline .connector{
+  background:linear-gradient(90deg,
+    rgba(255,255,255,.06) 0%,
+    rgba(244,165,34,.22) 12%,
+    rgba(244,165,34,.88) 27%,
+    #22d69a 43%,
+    #28dca0 68%,
+    #2bdca0 100%
+  )!important;
+}
+
+/* ============================================================
+   V30 — إزاحة خط المسار قليلًا نحو اليسار
+   حتى تتوافق نهاية الجزء الأخضر مع بداية أيقونة البوق،
+   مع إبقاء نقطة الفحص تحت علامة الاستفهام.
+   ============================================================ */
+@media (min-width:681px){
+  .pipeline .connector{
+    right:13.2%!important;
+    left:11.5%!important;
+  }
+  .pipeline .connector:after{
+    left:35.2%!important;
+  }
+}
+
+
+/* ============================================================
+   V31 — Desktop outcomes section as a centered wide banner
+   ============================================================ */
+@media (min-width:981px){
+  #outcomes .outcomes-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+    max-width:1180px!important;
+    margin:0 auto!important;
+    align-items:stretch!important;
+  }
+
+  #outcomes .outcome-list{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:14px!important;
+    width:100%!important;
+  }
+
+  #outcomes .outcome{
+    min-height:126px!important;
+    box-sizing:border-box!important;
+  }
+
+  #outcomes .why-card{
+    width:100%!important;
+    max-width:none!important;
+    min-height:220px!important;
+    box-sizing:border-box!important;
+    margin:0 auto!important;
+    padding:34px 42px!important;
+    border-radius:30px!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1.45fr) minmax(360px,.75fr)!important;
+    grid-template-areas:
+      "kicker stats"
+      "title  stats"
+      "text   stats"!important;
+    column-gap:44px!important;
+    row-gap:8px!important;
+    align-items:center!important;
+    transform:none!important;
+  }
+
+  #outcomes .why-card .kicker{
+    grid-area:kicker!important;
+    justify-self:start!important;
+    margin:0 0 4px!important;
+  }
+
+  #outcomes .why-card h3{
+    grid-area:title!important;
+    margin:0!important;
+    font-size:30px!important;
+    line-height:1.35!important;
+  }
+
+  #outcomes .why-card > p{
+    grid-area:text!important;
+    margin:0!important;
+    max-width:760px!important;
+  }
+
+  #outcomes .why-stat{
+    grid-area:stats!important;
+    margin:0!important;
+    width:100%!important;
+    align-self:center!important;
+  }
+}
+
+
+/* ============================================================
+   V32 — إصلاح اختفاء عناصر FAQ/Outcomes بسبب تعارض reveal القديم
+   ============================================================ */
+html.v18-motion .reveal{
+  opacity:1!important;
+  transform:none!important;
+}
+/* العناصر التي يديرها نظام الحركة الجديد تبقى تحت سيطرته */
+html.v18-motion .reveal.motion-item{
+  opacity:0!important;
+}
+html.v18-motion .reveal.motion-item.in-view{
+  opacity:1!important;
+}
+
+
+/* ============================================================
+   V33 — Desktop hero panel vertical balance
+   Shortens the navy diagnostic panel downward so its bottom aligns
+   visually with the trust cards on the right. Mobile is unchanged.
+   ============================================================ */
+@media (min-width:981px){
+  #tiltVisual .visual-head{
+    padding:19px 28px 11px!important;
+  }
+  #tiltVisual .pipeline{
+    height:290px!important;
+    margin-top:2px!important;
+  }
+  #tiltVisual .visual-foot{
+    padding:12px 28px 14px!important;
+  }
+  #tiltVisual .visual-card{
+    min-height:0!important;
+  }
+}
+
+
+/* ============================================================
+   V34 — خفض صندوق التنبيه داخل مخطط رحلة العميل قليلًا
+   تعديل سطح المكتب فقط، دون تغيير بقية العناصر.
+   ============================================================ */
+@media (min-width:681px){
+  .pipeline .callout{
+    bottom:4px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1115,14 +1644,13 @@ html.v18-motion .stagger-parent > .motion-item:nth-child(5){--motion-delay:360ms
    <div class="trust"><div class="trust-item"><b>30 دقيقة</b><span>جلسة مركزة</span></div><div class="trust-item"><b>أونلاين</b><span>Google Meet</span></div><div class="trust-item"><b>بدون التزام</b><span>القرار لك</span></div><div class="trust-item"><b>خطة أولويات</b><span>واضحة وقابلة للقياس</span></div></div>
   </div>
   <div class="visual-wrap reveal in" id="tiltVisual">
-   <div class="floating-badge one">نقيس <em>قبل</em> أن نقترح</div><div class="floating-badge two">نبحث عن <em>نقطة التعثر</em></div>
-   <div class="visual-card">
+<div class="visual-card">
     <div class="visual-head"><div><small>تشخيص رحلة العميل</small><div class="visual-title">من النقر إلى الطلب</div></div><span class="live"><i></i> تحليل المسار</span></div>
     <div class="pipeline"><div class="gridlines"></div><div class="connector"></div>
      <div class="flow">
       <div class="stage"><div class="node"><svg viewBox="0 0 24 24"><path d="M4 13V8l14-4v12L4 13Z"/><path d="M7 13v5"/><path d="M5 18h4"/></svg></div><strong>الإعلان</strong><small>نية البحث</small><span class="rate">100%</span></div>
       <div class="stage"><div class="node"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 8h16"/><path d="M8 6h.01"/></svg></div><strong>الزيارة</strong><small>صفحة الهبوط</small><span class="rate">63%</span></div>
-      <div class="stage"><div class="node"><svg viewBox="0 0 24 24"><path d="M8 10a4 4 0 1 1 8 0c0 3-4 3-4 6"/><path d="M12 20h.01"/></svg></div><strong>التفاعل</strong><small>قرار العميل</small><span class="rate" style="color:#ffbd50">28%</span></div>
+      <div class="stage"><div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.4 8.9a3.1 3.1 0 1 1 5.9 1.15c-.5 1.16-1.73 1.82-2.65 2.45-.96.66-1.65 1.37-1.65 2.95"/><circle cx="12" cy="19" r="1" fill="#fff" stroke="none"/></svg></div><strong>التفاعل</strong><small>قرار العميل</small><span class="rate" style="color:#ffbd50">28%</span></div>
       <div class="stage"><div class="node"><svg viewBox="0 0 24 24"><path d="M5 7h14l-1 12H6L5 7Z"/><path d="M8 7a4 4 0 0 1 8 0"/></svg></div><strong>الطلب</strong><small>التحويل</small><span class="rate" style="color:#8ba6b4">؟</span></div>
      </div>
      <div class="callout"><div><b>هبوط واضح بين الزيارة والتفاعل</b><span>هذه مجرد محاكاة بصرية — في الجلسة نستخدم أرقامك الفعلية.</span></div><span class="warn">نقطة فحص</span></div>
