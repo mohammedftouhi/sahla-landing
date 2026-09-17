@@ -1621,7 +1621,211 @@ html.v18-motion .reveal.motion-item.in-view{
   }
 }
 
+
+
+/* ============================================================
+   V37 — Mobile horizontal overflow hardening
+   Keeps the phone layout inside the real viewport width while
+   preserving horizontal card ribbons as internal scrollers.
+   ============================================================ */
+@media (max-width:680px){
+  html,
+  body{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:hidden!important;
+  }
+
+  body{
+    position:relative!important;
+  }
+
+  header,
+  main,
+  footer,
+  .topbar,
+  .header,
+  .hero,
+  .section{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:clip!important;
+  }
+
+  .container{
+    width:calc(100% - 28px)!important;
+    max-width:100%!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  .hero-grid,
+  .hero-copy,
+  .visual-wrap,
+  .visual-card,
+  .pipeline,
+  .diagnosis-grid,
+  .outcomes-grid,
+  .booking-inner,
+  .faq-grid{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+
+  .hero-title,
+  .hero-title .hero-line,
+  .hero-title .accent{
+    max-width:100%!important;
+  }
+
+  .hero-title .hero-line{
+    white-space:normal!important;
+  }
+
+  /* Keep the swipe decks inside the content width instead of
+     making the document itself wider than the phone viewport. */
+  .trust,
+  .symptoms,
+  .outcome-list{
+    width:100%!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    overscroll-behavior-inline:contain;
+  }
+
+  .visual-wrap{
+    width:100%!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  .visual-card{
+    width:100%!important;
+  }
+
+  .pipeline{
+    width:auto!important;
+    margin-left:15px!important;
+    margin-right:15px!important;
+  }
+
+  img,
+  svg{
+    max-width:100%;
+  }
+
+  .mobile-cta{
+    max-width:calc(100% - 20px)!important;
+  }
+}
+
+
+/* ============================================================
+   V38 — CTA ATTENTION MOTION
+   Stronger but still premium: slow breathing halo + light sweep.
+   ============================================================ */
+.booking-link{
+  animation:v38CtaBreath 3.8s ease-in-out infinite!important;
+  will-change:box-shadow,filter;
+}
+
+/* A clearly visible light pass across the full button — no capsule/square */
+.booking-link::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  top:0!important;
+  bottom:0!important;
+  left:-48%!important;
+  width:34%!important;
+  height:auto!important;
+  border:0!important;
+  border-radius:0!important;
+  transform:skewX(-18deg)!important;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,.08) 22%,
+    rgba(255,255,255,.48) 50%,
+    rgba(255,255,255,.10) 78%,
+    transparent 100%)!important;
+  box-shadow:none!important;
+  opacity:0!important;
+  pointer-events:none!important;
+  z-index:2!important;
+  animation:v38CtaSweep 3.8s cubic-bezier(.2,.7,.2,1) infinite!important;
+}
+
+/* Keep button label above the sweep */
+.booking-link > *{
+  position:relative;
+  z-index:3;
+}
+
+/* The hero arrow gets a small directional cue */
+.hero-actions .booking-link > span{
+  display:inline-block;
+  animation:v38ArrowCue 2.2s ease-in-out infinite;
+}
+
+@keyframes v38CtaBreath{
+  0%,100%{
+    filter:brightness(1);
+    box-shadow:
+      0 12px 28px rgba(7,150,102,.22),
+      0 0 0 0 rgba(24,207,145,0),
+      inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  48%{
+    filter:brightness(1.045);
+    box-shadow:
+      0 18px 38px rgba(7,150,102,.32),
+      0 0 0 7px rgba(24,207,145,.10),
+      0 0 26px rgba(24,207,145,.17),
+      inset 0 1px 0 rgba(255,255,255,.28);
+  }
+}
+
+@keyframes v38CtaSweep{
+  0%,50%{left:-48%;opacity:0}
+  56%{opacity:.95}
+  76%{left:116%;opacity:.72}
+  82%,100%{left:116%;opacity:0}
+}
+
+@keyframes v38ArrowCue{
+  0%,62%,100%{transform:translateX(0)}
+  74%{transform:translateX(-5px)}
+  86%{transform:translateX(0)}
+}
+
+.booking-link:hover{
+  animation-play-state:paused!important;
+}
+.booking-link:hover::after{
+  animation-play-state:paused!important;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .booking-link,
+  .booking-link::before,
+  .booking-link::after,
+  .hero-actions .booking-link > span{
+    animation:none!important;
+  }
+}
+
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-98EFCQ9EEW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-98EFCQ9EEW');
+</script>
+
 </head>
 <body>
 <div class="v18-progress" aria-hidden="true"><i></i></div>
